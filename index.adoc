@@ -22,3 +22,6 @@ This is a stub. There is no content here yet.
 == Introduction
 
 TODO
+
+
+include::keyboards.adoc[leveloffset=+1]

@@ -1,0 +1,22 @@
+== Overview
+
+Keyboards are generated on a per-language basis from source files in a repository on GitHub for that language, nominally under the `giellalt` organisation and prefixed with `keyboard-XXX` where XXX is the ISO 639-3 language code. For example, North Sami is `giellalt/keyboard-sme`.
+
+These repositories essentially only contain the files necessary to support keyboard generation. This means that there is a `kbdgen` bundle in the root directory, prefixed with the language code (e.g. `sme.kbdgen`). the structure of this bundle and how to create keyboard layouts is documented separately in the kbdgen documentation.
+
+These repositories are used as resources for continuous integration (CI) and continuous delivery (CD) tools. This means that when a change is made to the keyboard layout files and committed to the git repository, a build is immediately triggered on GitHub Actions to confirm that your changes were valid. A build will then be pushed to our Pahkat repositories onto the `nightly` channel so that they may be tested.
+
+However, the above only applies to Windows and macOS keyboards. If you are developing an iOS or Android keyboard, you will still provide your layout files in one of these repositories, only the build process is different. Due to how mobile operating systems are architectured, we need to bundle all the keyboards we intend to use as part of an app. Our iOS app is in the `divvun/divvun-keyboard-ios` repository, and for Android it is `divvun/divvun-keyboard-android` repository.
+
+At the time of writing, triggering these builds based on changes to the source material is manual due to a lack of support for job pipelining in GitHub Actions.
+
+== Tips for sysadmins
+
+=== Windows
+
+On Windows, when you install a keyboard with Divvun Manager 2.0 (previously known as Divvun Installer), the keyboard will no longer be automatically enabled for the current user. Previous versions of this installer _only_ enabled the keyboard for the current user, and caused some confusion in multi-user environments.
+
+For each language that is installed, a new "start menu" item is created with a localised variant of "Enable <language name> Keyboard". This enables the keyboard for the current user and adds the necessary language to the language list.
+
+For specific changes made to the registry to enable this behaviour, please refer to the kbdgen documentation.
+
