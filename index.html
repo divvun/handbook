@@ -444,6 +444,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#keyboards">2. Keyboards</a>
+<ul class="sectlevel2">
+<li><a href="#overview">2.1. Overview</a></li>
+<li><a href="#tips_for_sysadmins">2.2. Tips for sysadmins</a>
+<ul class="sectlevel3">
+<li><a href="#windows">2.2.1. Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -471,6 +481,44 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>TODO</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="keyboards"><a class="link" href="#keyboards">2. Keyboards</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="overview"><a class="link" href="#overview">2.1. Overview</a></h3>
+<div class="paragraph">
+<p>Keyboards are generated on a per-language basis from source files in a repository on GitHub for that language, nominally under the <code>giellalt</code> organisation and prefixed with <code>keyboard-XXX</code> where XXX is the ISO 639-3 language code. For example, North Sami is <code>giellalt/keyboard-sme</code>.</p>
+</div>
+<div class="paragraph">
+<p>These repositories essentially only contain the files necessary to support keyboard generation. This means that there is a <code>kbdgen</code> bundle in the root directory, prefixed with the language code (e.g. <code>sme.kbdgen</code>). the structure of this bundle and how to create keyboard layouts is documented separately in the kbdgen documentation.</p>
+</div>
+<div class="paragraph">
+<p>These repositories are used as resources for continuous integration (CI) and continuous delivery (CD) tools. This means that when a change is made to the keyboard layout files and committed to the git repository, a build is immediately triggered on GitHub Actions to confirm that your changes were valid. A build will then be pushed to our Pahkat repositories onto the <code>nightly</code> channel so that they may be tested.</p>
+</div>
+<div class="paragraph">
+<p>However, the above only applies to Windows and macOS keyboards. If you are developing an iOS or Android keyboard, you will still provide your layout files in one of these repositories, only the build process is different. Due to how mobile operating systems are architectured, we need to bundle all the keyboards we intend to use as part of an app. Our iOS app is in the <code>divvun/divvun-keyboard-ios</code> repository, and for Android it is <code>divvun/divvun-keyboard-android</code> repository.</p>
+</div>
+<div class="paragraph">
+<p>At the time of writing, triggering these builds based on changes to the source material is manual due to a lack of support for job pipelining in GitHub Actions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tips_for_sysadmins"><a class="link" href="#tips_for_sysadmins">2.2. Tips for sysadmins</a></h3>
+<div class="sect3">
+<h4 id="windows"><a class="link" href="#windows">2.2.1. Windows</a></h4>
+<div class="paragraph">
+<p>On Windows, when you install a keyboard with Divvun Manager 2.0 (previously known as Divvun Installer), the keyboard will no longer be automatically enabled for the current user. Previous versions of this installer <em>only</em> enabled the keyboard for the current user, and caused some confusion in multi-user environments.</p>
+</div>
+<div class="paragraph">
+<p>For each language that is installed, a new "start menu" item is created with a localised variant of "Enable &lt;language name&gt; Keyboard". This enables the keyboard for the current user and adds the necessary language to the language list.</p>
+</div>
+<div class="paragraph">
+<p>For specific changes made to the registry to enable this behaviour, please refer to the kbdgen documentation.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
