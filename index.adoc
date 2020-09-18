@@ -1,4 +1,4 @@
-= Divvun Developer's Handbook
+= Divvun Handbook
 :doctype: book
 :compat-mode!:
 :page-layout!:
