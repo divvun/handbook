@@ -443,13 +443,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#keyboards">2. Keyboards</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#overview">2.1. Overview</a></li>
-<li><a href="#tips_for_sysadmins">2.2. Tips for sysadmins</a>
+<li><a href="#purpose">1.1. Purpose</a></li>
+<li><a href="#target_audience">1.2. Target Audience</a></li>
+</ul>
+</li>
+<li><a href="#policies_and_procedures">2. Policies and Procedures</a>
+<ul class="sectlevel2">
+<li><a href="#releases">2.1. Releases</a>
 <ul class="sectlevel3">
-<li><a href="#windows">2.2.1. Windows</a></li>
+<li><a href="#cadence">2.1.1. Cadence</a></li>
+</ul>
+</li>
+<li><a href="#social_media">2.2. Social Media</a>
+<ul class="sectlevel3">
+<li><a href="#objectives_and_scope">2.2.1. Objectives and Scope</a></li>
+<li><a href="#account_usage">2.2.2. Account usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#implementation_details">3. Implementation Details</a>
+<ul class="sectlevel2">
+<li><a href="#keyboards">3.1. Keyboards</a>
+<ul class="sectlevel3">
+<li><a href="#overview">3.1.1. Overview</a></li>
+<li><a href="#tips_for_sysadmins">3.1.2. Tips for sysadmins</a></li>
 </ul>
 </li>
 </ul>
@@ -458,37 +478,131 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This is a stub. There is no content here yet.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>TODO</p>
 </div>
+<div class="sect2">
+<h3 id="purpose"><a class="link" href="#purpose">1.1. Purpose</a></h3>
+<div class="paragraph">
+<p>This is a central operations document for getting the highest level overview of all Divvun operations, infrastructure, software and procedures.</p>
+</div>
+<div class="paragraph">
+<p>It incorporates information particularly concerning:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Document the "where" and "how" of Divvun infrastructure and deployed software (such as API endpoints, deployment procedures, etc)</p>
+</li>
+<li>
+<p>Operation guidelines for team management and procedures</p>
+</li>
+<li>
+<p>To enable as much awareness as we can about what Divvun <em>is</em> and <em>does</em>, to all those who need to understand it</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Detailed documentation on specific aspects of software is maintained in its respective repositories and will be linked to where relevant.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="target_audience"><a class="link" href="#target_audience">1.2. Target Audience</a></h3>
+<div class="paragraph">
+<p>The target audience for this documentation is any person involved with any aspect of Divvun development. This includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New members of the Divvun team needing documentation for onboarding purposes</p>
+</li>
+<li>
+<p>Members of other organisations who are intending to collaborate with Divvun</p>
+</li>
+<li>
+<p>Linguists looking to develop or deploy language resources using Divvun tools or infrastructure</p>
+</li>
+<li>
+<p>Developers and system administrators looking for operational guidance on Divvun software infrastructure</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Authorship is a collective endeavour and is managed in a Git repository. Changes should be proposed as a pull request.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="keyboards"><a class="link" href="#keyboards">2. Keyboards</a></h2>
+<h2 id="policies_and_procedures"><a class="link" href="#policies_and_procedures">2. Policies and Procedures</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="overview"><a class="link" href="#overview">2.1. Overview</a></h3>
+<h3 id="releases"><a class="link" href="#releases">2.1. Releases</a></h3>
+<div class="sect3">
+<h4 id="cadence"><a class="link" href="#cadence">2.1.1. Cadence</a></h4>
+<div class="paragraph">
+<p>From October 2020, most Divvun software releases will enter a two-phase release cycle:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Major features will be released on a quarterly cadence, with development beginning at the start and release
+occurring at the end (start Oct, release Dec; start Jan, release Mar; etc)</p>
+</li>
+<li>
+<p>Minor features will ideally be released on a 6-week cadence</p>
+</li>
+<li>
+<p>Patches and urgent bug-fixes will be released as required</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A major feature is one with a significant user impact or which requires significant testing to determine
+stability. By contrast, minor features are therefore less impactful to the user, such as improving error messages
+or performance improvements.</p>
+</div>
+<div class="paragraph">
+<p>This policy does not affect language resource releases&#8201;&#8212;&#8201;those will still be deployed to the nightly or stable
+channels as required. For all intents and purposes, the addition of a new keyboard layout to Divvun Keyboard is
+considered a minor release and not a major release, other than for marketing purposes.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="social_media"><a class="link" href="#social_media">2.2. Social Media</a></h3>
+<div class="sect3">
+<h4 id="objectives_and_scope"><a class="link" href="#objectives_and_scope">2.2.1. Objectives and Scope</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="account_usage"><a class="link" href="#account_usage">2.2.2. Account usage</a></h4>
+<div class="sect4">
+<h5 id="twitter"><a class="link" href="#twitter">Twitter</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="facebook"><a class="link" href="#facebook">Facebook</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="instagram"><a class="link" href="#instagram">Instagram</a></h5>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implementation_details"><a class="link" href="#implementation_details">3. Implementation Details</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="keyboards"><a class="link" href="#keyboards">3.1. Keyboards</a></h3>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">3.1.1. Overview</a></h4>
 <div class="paragraph">
 <p>Keyboards are generated on a per-language basis from source files in a repository on GitHub for that language, nominally under the <code>giellalt</code> organisation and prefixed with <code>keyboard-XXX</code> where XXX is the ISO 639-3 language code. For example, North Sami is <code>giellalt/keyboard-sme</code>.</p>
 </div>
@@ -505,10 +619,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>At the time of writing, triggering these builds based on changes to the source material is manual due to a lack of support for job pipelining in GitHub Actions.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="tips_for_sysadmins"><a class="link" href="#tips_for_sysadmins">2.2. Tips for sysadmins</a></h3>
 <div class="sect3">
-<h4 id="windows"><a class="link" href="#windows">2.2.1. Windows</a></h4>
+<h4 id="tips_for_sysadmins"><a class="link" href="#tips_for_sysadmins">3.1.2. Tips for sysadmins</a></h4>
+<div class="sect4">
+<h5 id="windows"><a class="link" href="#windows">Windows</a></h5>
 <div class="paragraph">
 <p>On Windows, when you install a keyboard with Divvun Manager 2.0 (previously known as Divvun Installer), the keyboard will no longer be automatically enabled for the current user. Previous versions of this installer <em>only</em> enabled the keyboard for the current user, and caused some confusion in multi-user environments.</p>
 </div>
@@ -517,6 +631,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="paragraph">
 <p>For specific changes made to the registry to enable this behaviour, please refer to the kbdgen documentation.</p>
+</div>
 </div>
 </div>
 </div>

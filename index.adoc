@@ -14,14 +14,39 @@
 :nofooter:
 :source-highlighter: coderay
 
-[WARNING]
-====
-This is a stub. There is no content here yet.
-====
-
 == Introduction
 
 TODO
 
+=== Purpose
 
-include::keyboards.adoc[leveloffset=+1]
+This is a central operations document for getting the highest level overview of all Divvun operations, infrastructure, software and procedures.
+
+It incorporates information particularly concerning:
+
+- Document the "where" and "how" of Divvun infrastructure and deployed software (such as API endpoints, deployment procedures, etc)
+- Operation guidelines for team management and procedures
+- To enable as much awareness as we can about what Divvun _is_ and _does_, to all those who need to understand it
+
+Detailed documentation on specific aspects of software is maintained in its respective repositories and will be linked to where relevant.
+
+=== Target Audience
+
+The target audience for this documentation is any person involved with any aspect of Divvun development. This includes:
+
+- New members of the Divvun team needing documentation for onboarding purposes
+- Members of other organisations who are intending to collaborate with Divvun
+- Linguists looking to develop or deploy language resources using Divvun tools or infrastructure
+- Developers and system administrators looking for operational guidance on Divvun software infrastructure
+
+Authorship is a collective endeavour and is managed in a Git repository. Changes should be proposed as a pull request.
+
+== Policies and Procedures
+
+include::releases.adoc[leveloffset=+2]
+include::social-media.adoc[leveloffset=+2]
+
+== Implementation Details
+
+include::keyboards.adoc[leveloffset=+2]
+

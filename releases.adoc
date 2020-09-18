@@ -1,0 +1,18 @@
+= Releases
+
+== Cadence
+
+From October 2020, most Divvun software releases will enter a two-phase release cycle:
+
+- Major features will be released on a quarterly cadence, with development beginning at the start and release
+  occurring at the end (start Oct, release Dec; start Jan, release Mar; etc)
+- Minor features will ideally be released on a 6-week cadence
+- Patches and urgent bug-fixes will be released as required
+
+A major feature is one with a significant user impact or which requires significant testing to determine
+stability. By contrast, minor features are therefore less impactful to the user, such as improving error messages
+or performance improvements.
+
+This policy does not affect language resource releases -- those will still be deployed to the nightly or stable
+channels as required. For all intents and purposes, the addition of a new keyboard layout to Divvun Keyboard is
+considered a minor release and not a major release, other than for marketing purposes.
