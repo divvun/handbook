@@ -4,4 +4,4 @@
 
 Run `asciidoctor`. Commit resulting .html files.
 
-[Rendered](https://raw.githack.com/divvun/handbook/main/index.html)
+[Rendered](https://rawcdn.githack.com/divvun/handbook/main/index.html)
