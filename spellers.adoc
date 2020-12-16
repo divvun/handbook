@@ -1,0 +1,20 @@
+= Spellers
+
+== Overview
+
+== Format and content of manifest.toml
+
+The purpose of the manifest.toml is to describe to our build systems various pieces of mandatory information
+required at build time in a system-agnostic way.
+
+Below is an example of a manifest.toml and all of its possible fields, documented inline.
+
+TODO THE THING SAID ABOVE
+
+== Debugging Microsoft Office issues
+
+== Technical details
+
+=== Registry
+
+On Windows, spellers do things.

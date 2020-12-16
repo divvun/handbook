@@ -1,4 +1,4 @@
-# Divvun's Developer Handbook
+# Divvun Handbook
 
 ## Building
 

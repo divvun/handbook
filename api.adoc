@@ -1,0 +1,7 @@
+# Language Services API (REST and GraphQL)
+
+We got an API, it does a bunch of shit.
+It's written in Rust
+
+You can grammar, hyphenate and spell.
+

@@ -1,0 +1,22 @@
+= End-user Support
+
+== Overview
+
+== Mobile keyboards
+
+== Desktop keyboards
+
+== Desktop spellers
+
+== Getting debug logs from the end-user
+
+Divvun Manager on Windows and macOS has a built-in function to generate a zip file of all logs and useful system information to assist in debugging issues.
+
+- **On Windows**, Click the hambuger menu. **On MacOS**, click Help.
+- Choose the "Generate debug zip file" option
+- A warning appears explaining to the user what this is for, they should click OK
+- They now select to save the ZIP file somewhere (desktop is selected by default)
+- A popup explaining what has just happened appears, and copies 'feedback@divvun.no' to the clipboard
+- They should now attach and send the ZIP file to an email and send it to us for review.
+
+In the future, once GDPR compliance issues are sorted out, there will be a mechanism to automatically send this to Divvun via the Divvun API.

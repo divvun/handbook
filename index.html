@@ -469,7 +469,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#keyboards">3.1. Keyboards</a>
 <ul class="sectlevel3">
 <li><a href="#overview">3.1.1. Overview</a></li>
-<li><a href="#tips_for_sysadmins">3.1.2. Tips for sysadmins</a></li>
+<li><a href="#project_goals">3.1.2. Project Goals</a></li>
+<li><a href="#tips_for_sysadmins">3.1.3. Tips for sysadmins</a></li>
+<li><a href="#mobile_keyboards">3.1.4. Mobile keyboards</a></li>
 </ul>
 </li>
 </ul>
@@ -620,17 +622,61 @@ considered a minor release and not a major release, other than for marketing pur
 </div>
 </div>
 <div class="sect3">
-<h4 id="tips_for_sysadmins"><a class="link" href="#tips_for_sysadmins">3.1.2. Tips for sysadmins</a></h4>
+<h4 id="project_goals"><a class="link" href="#project_goals">3.1.2. Project Goals</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="tips_for_sysadmins"><a class="link" href="#tips_for_sysadmins">3.1.3. Tips for sysadmins</a></h4>
 <div class="sect4">
 <h5 id="windows"><a class="link" href="#windows">Windows</a></h5>
 <div class="paragraph">
-<p>On Windows, when you install a keyboard with Divvun Manager 2.0 (previously known as Divvun Installer), the keyboard will no longer be automatically enabled for the current user. Previous versions of this installer <em>only</em> enabled the keyboard for the current user, and caused some confusion in multi-user environments.</p>
+<p>On Windows, when you install a keyboard with Divvun Manager (previously known as Divvun Installer), the keyboard will no longer be automatically enabled for the current user. Previous versions of this installer <em>only</em> enabled the keyboard for the current user, and caused some confusion in multi-user environments.</p>
 </div>
 <div class="paragraph">
 <p>For each language that is installed, a new "start menu" item is created with a localised variant of "Enable &lt;language name&gt; Keyboard". This enables the keyboard for the current user and adds the necessary language to the language list.</p>
 </div>
 <div class="paragraph">
 <p>For specific changes made to the registry to enable this behaviour, please refer to the kbdgen documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mobile_keyboards"><a class="link" href="#mobile_keyboards">3.1.4. Mobile keyboards</a></h4>
+<div class="sect4">
+<h5 id="overview_2"><a class="link" href="#overview_2">Overview</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="user_dictionary_functionality"><a class="link" href="#user_dictionary_functionality">User dictionary functionality</a></h5>
+<div class="paragraph">
+<p>Each keyboard includes user dictionary</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="divvunspell_integration"><a class="link" href="#divvunspell_integration">DivvunSpell integration</a></h5>
+<div class="paragraph">
+<p>Our Android and iOS keyboards integrate our speller library DivvunSpell, a derivative of hfst-ospell. This library includes tokenisation and capitalisation support. However, it also specifically only uses memory mapped data, so RAM usage is extremely minimal for our spellers (roughly 5MB on iOS and similar on Android).</p>
+</div>
+<div class="paragraph">
+<p>We also on mobile use a speller bundle format optimised for usage on mobiles&#8201;&#8212;&#8201;BHFST. Unlike .zhfst files, .bhfst files use a new format called .box to bundle the internal files. .box was created to correct several deficiencies in .zip, with a focus on ensuring aligned reads (this stops our spellers crashing on 32bit ARM processors) and simplifying the dependencies needed to load the files in the first place.</p>
+</div>
+<div class="paragraph">
+<p>Another difference is what is inside the bundle. Instead of containing an index.xml and some .hfst files, there are bundles known as .thfst bundles, and a meta.json. By using JSON, we alleviate needing an XML dependency on all platforms we support, and simplify the parsing significantly. THFST bundles (named Tromsø-Helsinki Finite State Transducer) are simply a slightly more optimised variant of the optimized lookup HFST format. The header is stripped into a separate file, and all fields are 4-byte aligned so that reads never require a copy and that lookups do not cause unaligned read crashes.</p>
+</div>
+<div class="paragraph">
+<p>DivvunSpell itself is then hooked into a Swift or Kotlin module using a C foreign function interface to the underlying DivvunSpell Rust library. This means that uses of these platforms need not deal with the intricacies of the Rust library and can use their preferred language directly. This interface also reveals the tokenizer interface, which is important for determining word endings.</p>
+</div>
+<div class="paragraph">
+<p>These interfaces tend to be integrated into a banner plugin or equivalent functionality on the mobile platform. On iOS, our giellakbd-ios codebase has a plugin interface specifically crafted for simply adding new plugins. On Android, we maintain a fork of the Android Open Source Project keyboard&#8201;&#8212;&#8201;there are less clean interfaces here, but the implementation can be found in the <code>no.divvun</code> namespace.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="pahkat_integration"><a class="link" href="#pahkat_integration">Pahkat integration</a></h5>
+<div class="paragraph">
+<p>Speller files are not packaged with the keyboards installed from the Google Play Store or the Apple App Store. Instead, they are downloaded on-demand for the enabled keyboards. This also means that the speller files are updated in the background without any user interaction.</p>
+</div>
+<div class="paragraph">
+<p>To enable this, we use our Pahkat package management library and servers. Each kbdgen keyboard definition has a directive to use a speller, using a Pahkat URL and the specific file within the package to use.</p>
 </div>
 </div>
 </div>

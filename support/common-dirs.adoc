@@ -1,0 +1,48 @@
+== Common directories
+
+=== Spellers
+
+==== macOS
+
+- System: `/Library/Services/<iso-lang>.bundle`
+- User: `~/Library/Services/<iso-lang>.bundle`
+
+==== Windows
+
+- System: `C:\Program Files\WinDivvun\Spellers\<iso-lang>\`
+
+== Conventional directories for configuration and app-generated data
+
+All Divvun-supplied software follows platform standard conventions for where files go.
+
+=== Windows
+
+==== System-wide
+
+- Configuration files: `C:\ProgramData\<AppName>\config`
+- Log files: `C:\ProgramData\<AppName>\log`
+- Cache files: `C:\ProgramData\<AppName>\cache`
+- Temporary files: `C:\ProgramData\<AppName>\cache\tmp`
+
+==== User-specific
+
+- Configuration files: `%APPDATA%\<AppName>\config`
+- Log files: `%APPDATA%\<AppName>\log`
+- Cache files: `%LOCALAPPDATA%\<AppName>\cache`
+- Temporary files: `%LOCALAPPDATA%\<AppName>\cache\tmp`
+
+=== macOS
+
+==== System-wide
+
+- Configuration files: `/Library/Application Settings/<AppName>`
+- Log files: `/Library/Logs/<AppName>`
+- Cache files: `/Library/Caches/<AppName>`
+- Temporary files: `/Library/Caches/<AppName>/tmp`
+
+==== User-specific
+
+- Configuration files: `~/Library/Application Settings/<AppName>`
+- Log files: `~/Library/Logs/<AppName>`
+- Cache files: `~/Library/Caches/<AppName>`
+- Temporary files: `~/Library/Caches/<AppName>/tmp`
