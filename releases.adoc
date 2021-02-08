@@ -16,3 +16,16 @@ or performance improvements.
 This policy does not affect language resource releases -- those will still be deployed to the nightly or stable
 channels as required. For all intents and purposes, the addition of a new keyboard layout to Divvun Keyboard is
 considered a minor release and not a major release, other than for marketing purposes.
+
+== Divvun Manager (Windows)
+
+=== Checklist
+The release checklist needs to be performed on a "clean" Windows 8.1 machine. The Windows installation needs to be
+fully updated and have no unnecessary software installed.
+
+- Install Divvun Manager
+- Verify webview can run an install.
+- Verify opening settings and changing repos works.
+- Switch to the all repositories view and verify installation works via that.
+- Verify that you can uninstall from the all repositories view.
+- Switch to an account that does not have admin and validate that installation fails with an appropriate error.
